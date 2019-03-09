@@ -26,7 +26,6 @@
 #define MAX_REMOTE_NUM 10
 #define MAX_DSCP_NUM 64
 #define MAX_CONF_SIZE 128 * 1024
-#define MAX_DNS_NUM 4
 #define MAX_CONNECT_TIMEOUT 10
 #define MAX_REQUEST_TIMEOUT 60
 #define MIN_UDP_TIMEOUT 10
@@ -43,11 +42,6 @@
 #define TCP_ONLY     0
 #define TCP_AND_UDP  1
 #define UDP_ONLY     3
-
-typedef struct {
-    char *host;
-    char *port;
-} ss_addr_t;
 
 typedef struct {
     char *port;
@@ -86,6 +80,8 @@ typedef struct {
     int mptcp;
     int ipv6_first;
     int no_delay;
+    char *workdir;
+    char *acl;
 } jconf_t;
 
 jconf_t *read_jconf(const char *file);
